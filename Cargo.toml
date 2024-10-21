@@ -1,0 +1,22 @@
+[package]
+name = "pick"
+version = "0.2.1"
+edition = "2021"
+authors = ["Maurice J Niessen <info@mjniessen.com>"]
+description = "Picks one or more random lines of given ones."
+documentation = "https://mjniessen.com/pick"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.5"
+bytecount = "0.6.7"
+clap = { version = "4.4.11", features = ["cargo", "unicode"] }
+atty = "0.2.14"
+
+[profile.release]
+strip = true      # Automatically strip symbols from binary
+debug = false     # No debug info at all
+opt-level = 3     # All optimization (0 for no, 1 for basic, 2 for some, 3 for all, "s" for size, "z" for size & no loop vector)
+lto = true        # Enable link time optimization
+codegen-units = 1 # Maximize size reduction optimization
