@@ -1,0 +1,17 @@
+#compdef pick
+
+_pick() {
+  local -a args 
+  args=(
+    '(-c --count)'{-c,--count}'[Repeat picking <COUNT> times]'
+    '(-u --unique)'{-u,--unique}'[Unique selection of lines]'
+    '(-h --help)'{-h,--help}'[Print help]'
+    '(-V --version)'{-V,--version}'[Print version]'
+    '*: :{ _files }'
+  )
+
+  _arguments -S -s $args
+
+}
+
+_pick "$@"
